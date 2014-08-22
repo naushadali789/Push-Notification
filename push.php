@@ -1,18 +1,23 @@
 <?php
 
+// you can send xml, json or simple text
+$json = '{"type" : "1", "message" : "text..."}';
+
+
+$registrationIDs = array("Your Registeration ids");
+
 function sendToGCM($json, $registrationIDs){
 // Replace with real BROWSER API key from Google APIs
 $apiKey = "Your API Key";
 
-$json_new= json_decode($json);
+
 
 // Set POST variables
 $url = 'https://android.googleapis.com/gcm/send';
-$message=substr($json_new->message,0,50);
 
 $fields = array(
                 'registration_ids'  => $registrationIDs,
-                'data'              => array( "json" => $json,"title"=>$message),
+                'data'              => array( "json" => $json, "title" => "Statusbar testing." ),
                 );
 
 $headers = array(
@@ -40,7 +45,8 @@ $result = curl_exec($ch);
 // Close connection
 curl_close($ch);
 
-return $result;
+echo $result;
 }
 
+sendToGCM($json, $registrationIDs);
 ?>
