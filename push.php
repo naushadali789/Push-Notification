@@ -1,5 +1,6 @@
 <?php
 
+
 // you can send xml, json or simple text
 $json = '{"type" : "1", "message" : "text..."}';
 
