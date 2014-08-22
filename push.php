@@ -1,6 +1,5 @@
 <?php
 
-
 function sendToGCM($json, $registrationIDs){
 // Replace with real BROWSER API key from Google APIs
 $apiKey = "Your API Key";
